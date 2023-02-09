@@ -12,7 +12,7 @@
     $list_price_f = "$".number_format($list_price, 2);
     $discount_percent_f = $discount_percent."%";
     $discount_f = "$".number_format($discount, 2);
-    $dscount_price_f = "$".number_format($discount_price, 2);
+    $discount_price_f = "$".number_format($discount_price, 2);
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
 </head>
 <body>
     <main>
-        <h1>This page is under construction</h1>
+        <h1>Product Discount Calculator</h1>
 
         <label>Product Description:</label>
         <span><?php echo htmlspecialchars($product_description); ?></span><br>
