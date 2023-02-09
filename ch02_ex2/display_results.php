@@ -15,6 +15,8 @@
     // validate interest rate
     } else if ( $interest_rate === FALSE )  {
         $error_message = 'Interest rate must be a valid number.'; 
+    } else if ( $interest_rate > 15 )  {
+        $error_message = 'Interest rate must be less than or equal to 15'; 
     } else if ( $interest_rate <= 0 ) {
         $error_message = 'Interest rate must be greater than zero.'; 
     // validate years
@@ -55,17 +57,21 @@
     <main>
         <h1>Future Value Calculator</h1>
 
+        <hr>
+        
         <label>Investment Amount:</label>
-        <span><?php echo $investment_f; ?></span><br>
+        <span class="value"><?php echo $investment_f; ?></span><br>
 
         <label>Yearly Interest Rate:</label>
-        <span><?php echo $yearly_rate_f; ?></span><br>
+        <span class="value"><?php echo $yearly_rate_f; ?></span><br>
 
         <label>Number of Years:</label>
-        <span><?php echo $years; ?></span><br>
+        <span class="value"><?php echo $years; ?></span><br>
 
         <label>Future Value:</label>
-        <span><?php echo $future_value_f; ?></span><br>
+        <span class="value"><?php echo $future_value_f; ?></span><br>
     </main>
+    <hr>
+    <p class="dateLabel">This calculation was completed on: <span class="date"><?php echo date("m/d/Y")?></span></p>
 </body>
 </html>

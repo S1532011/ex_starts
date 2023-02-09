@@ -4,34 +4,80 @@ body {
 main {
     display: block;
     width: 450px;
-    margin: 0 auto;
+    margin: 6px auto;
     padding: 1em;
-    background: white;
-    border: 2px solid navy;
+    border: 2px solid #ff7f50;
+    border-radius: 6px;
+    background-color: #ff7f5088;
 }
 h1 {
     margin-top: 0;
-    color: navy;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-shadow: 1px 1px 0.4px #ff7f50, -1px -1px 0.4px #ff7f50, -1px 1px 0.4px #ff7f50, 1px -1px 0.4px #ff7f50, 2.5px 2.5px 2px #121212;
 }
 label {
     width: 10em;
     float: left;
     padding-right: 1em;
     padding-bottom: .5em;
+    font-weight: bold;
+    text-shadow: 0.2px 0.2px 0.2px #212121;
 }
 #data input {
     float: left;
     width: 15em;
     margin-bottom: .5em;
+    border: 1px solid #ff7f50;
+    border-radius: 3px;
+    background-color: #ff7f5099;
+    box-shadow: 2px 2px 2px #12121255;
 }
 #buttons input {
     float: left;
     margin-bottom: .5em;
+    border: 1px solid #ff7f50;
+    border-radius: 3px;
+    background-color: #ff7f5099;
+    box-shadow: 2px 2px 2px #12121255;
+}
+#data input:hover {
+    border: 1px solid #ff7f5099;
+    background-color: #ff7f5055;
+}
+#buttons input:hover {
+    border: 1px solid #ff7f5099;
+    background-color: #ff7f5055;
 }
 br {
     clear: left;
 }
 .error {
-    color: red;
+    color: #ff0000bb;
     font-weight: bold;
+}
+
+hr {
+    margin: 5px auto;
+    width: 450px;
+    height: 1px;
+    background: -webkit-linear-gradient(left, #ff7f5000, #ff7f50, #ff7f5000);
+    border: 0;
+}
+.value {
+    text-shadow: 0.4px 0.4px 0.4px #121212;
+}
+.dateLabel {
+    display: block;
+    padding: 1em;
+    margin: 6px auto;
+    width: 300px;
+    font-size: 0.8em;
+    color: #121212;
+    border: 2px solid #ff7f50;
+    border-radius: 6px;
+    background-color: #ff7f5099;
+}
+.date {
+    text-shadow: 0.4px 0.4px 0.4px #212121;
 }
