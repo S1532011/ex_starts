@@ -26,11 +26,16 @@ body {
 .input-item {
     height: 20px;
     color: #eee;
-    background-color: #222;
+    background-color: #123;
     border-style: solid;
     border-radius: 6px;
     border-color: #ff7f50;
     border-width: 1px;
+}
+.hover-styles:hover {
+    /* margin: 6px 19px 4px 21px; */
+    transform: translateX(1px);
+    background-color: #234;
 }
 .input-item::-webkit-inner-spin-button {
     opacity: 0;

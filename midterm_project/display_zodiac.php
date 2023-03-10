@@ -11,6 +11,9 @@
     </head>
     <body>
         <div id="main-page" class="flex column">
+            <form action="index.php" method="post">
+                <input class="form-item input-item hover-styles" type="submit" value="< Back" />
+            </form>
             <h1>The Zodiac Animal for <?php echo $year ?> is: <?php echo $zodiac ?></h1>
         </div>
     </body>

@@ -9,10 +9,13 @@
                 <div id="zodiac-form" class="flex row">
                     <h2 class="form-item">Birth Year:</h2>
                     <span class='number-wrapper'>
-                        <input class="form-item input-item" type="number" name="year" min="1945" max="2019" step="1" value="2019" />
+                        <input id="year" class="form-item input-item" type="number" name="year" min="1945" max="2019" step="1" value="2019" />
                     </span>
                 </div>
-                <input class="form-item input-item" type="submit" value="Submit">
+                <div id="zodiac-form" class="flex row">
+                    <input class="form-item input-item hover-styles" type="submit" value="Submit" />
+                    <input class="form-item input-item hover-styles" type="reset" value="Reset" />
+                </div>
             </form>
         </div>
     </body>
