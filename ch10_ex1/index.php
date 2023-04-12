@@ -30,24 +30,51 @@ switch ($action) {
         $invoice_date_s = filter_input(INPUT_POST, 'invoice_date');
         $due_date_s = filter_input(INPUT_POST, 'due_date');
 
+        $format = "n/j/Y";
+
+        $invoice_date = DateTime::createFromFormat($format, $invoice_date_s);
+        $due_date = DateTime::createFromFormat($format, $due_date_s);
+
         // make sure the user enters both dates
+        if($invoice_date_s === "") {
+            $message = "Please enter an invoice date";
+        } else if(!($invoice_date && $invoice_date -> format($format) === $invoice_date_s)) {
+            $message = "Please enter a valid invoice date (mm/dd/yyyy)";
+        } else if($due_date_s === "") {
+            $message = "Please enter a due date";
+        } else if(!($due_date && $due_date -> format($format) === $due_date_s)) {
+            $message = "Please enter a valid due date (mm/dd/yyyy)";
+        } else {
+            // convert date strings to DateTime objects
+            // and use a try/catch to make sure the dates are valid
 
-        // convert date strings to DateTime objects
-        // and use a try/catch to make sure the dates are valid
+            // make sure the due date is after the invoice date
 
-        // make sure the due date is after the invoice date
-
-        // format both dates
-        $invoice_date_f = 'not implemented yet';
-        $due_date_f = 'not implemented yet'; 
-        
-        // get the current date and time and format it
-        $current_date_f = 'not implemented yet';
-        $current_time_f = 'not implemented yet';
-        
-        // get the amount of time between the current date and the due date
-        // and format the due date message
-        $due_date_message = 'not implemented yet';
+            // format both dates
+            $invoice_date_f = $invoice_date_s;
+            $due_date_f = $due_date_s;
+            
+            // get the current date and time and format it
+            $current_date = new DateTime();
+            $current_date_f = $current_date->format("n/j/Y");
+            $current_time_f = $current_date->format("h:i:s a");
+            
+            // get the amount of time between the current date and the due date
+            // and format the due date message
+            if($due_date > $current_date) {
+                $diff_date = $due_date->diff($current_date);
+                $years = $diff_date->y;
+                $months = $diff_date->m;
+                $days = $diff_date->d;
+                $due_date_message = "This invoice is due in " . $years . " years, " . $months . " months, and " . $days . " days.";
+            } else {
+                $diff_date = $current_date->diff($due_date);
+                $years = $diff_date->y;
+                $months = $diff_date->m;
+                $days = $diff_date->d;
+                $due_date_message = "This invoice is " . $years . " years, " . $months . " months, and " . $days . " days overdue.";
+            }
+        }
 
         break;
 }
