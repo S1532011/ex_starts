@@ -70,7 +70,11 @@
 
             <br><br>
             <label>&nbsp;</label>
-            <input type="submit" name="action" value="Sort Tasks">
+            <?php 
+                if(count($task_list) >= 2) {
+                    echo '<input type="submit" name="action" value="Sort Tasks" id="sortButton">';
+                }
+            ?>
         </form>
         <?php endif; ?>
 
