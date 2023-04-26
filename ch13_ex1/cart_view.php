@@ -10,11 +10,10 @@
     </header>
     <main>
         <h1>Your Cart</h1>
-        <?php if (empty($_SESSION['cart13']) || 
-                  count($_SESSION['cart13']) == 0) : ?>
+        <?php if (empty($_SESSION['cart13']) || count($_SESSION['cart13']) == 0) : ?>
             <p>There are no items in your cart.</p>
         <?php else: ?>
-            <form action="." method="post">
+            <form action="future_value.php" method="post">
                 <input type="hidden" name="action" value="update">
                 <table>
                     <tr id="cart_header">
@@ -46,16 +45,30 @@
                 <?php endforeach; ?>
                     <tr id="cart_footer">
                         <td colspan="3"><b>Subtotal</b></td>
-                        <td>$<?php echo Maenle\get_subtotal($_SESSION['cart13']); ?></td>
+                        <!-- <td>$<?php echo Maenle\get_subtotal($_SESSION['cart13']); ?></td> -->
+                        <td>$<input type="text" name="subtotal" value="<?php echo Maenle\get_subtotal($_SESSION['cart13']); ?>"/></td>
+                    </tr>
+                    <tr class="right">
+                        <td colspan="3"><b>Yearly Interest Rate</b></td>
+                        <td><input type="number" min="1" max="100" step="1" name="interest_rate" value="5"/>%</td>
+                    </tr>
+                    <tr class="right">
+                        <td colspan="3"><b>Number of Years:</b></td>
+                        <td>$<input type="number" min="1" step="1" name="years" value="5"/></td>
                     </tr>
                     <tr>
                         <td colspan="4" class="right">
                             <input type="submit" value="Update Cart">
+                            <input type="submit" name="action" value="Calculate Future Value">
                         </td>
                     </tr>
                 </table>
-                <p>Click "Update Cart" to update quantities in your
-                cart. <br>Enter a quantity of 0 to remove an item.
+                <p>
+                    - Click "Update Cart" to update quantities in your cart.
+                    <br>
+                    - Enter a quantity of 0 to remove an item.
+                    <br>
+                    - Click "Calculate Future value to calculate a payment plan."
                 </p>
             </form>
         <?php endif; ?>
